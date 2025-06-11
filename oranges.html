@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oranges</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* Background Container */
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 200vh; /* Twice the viewport height */
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange-Fruit-Pieces.jpg'), 
+                        url('https://upload.wikimedia.org/wikipedia/commons/4/43/Ambersweet_oranges.jpg'); /* Two images */
+      background-position: center top, center bottom;
+      background-repeat: no-repeat;
+      background-size: cover;
+      filter: blur(8px);
+      transition: transform 0.5s ease-out;
+      z-index: -1;
+    }
+
+    /* Content Overlay */
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 50px;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+
+    .main-image img {
+      width: 80%;
+      max-width: 600px;
+      margin: 30px 0;
+      border: 5px solid white;
+      border-radius: 10px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding-bottom: 50px;
+    }
+
+    .gallery img {
+      width: 80%;
+      max-width: 500px;
+      border-radius: 10px;
+      border: 3px solid white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background"></div> <!-- Scrolling Background -->
+
+  <div class="content">
+    <header>
+      <h1>Oranges</h1>
+    </header>
+
+    <main>
+      <section class="main-image">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange-Fruit-Pieces.jpg" alt="Orange">
+      </section>
+
+      <section class="gallery">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Ambersweet_oranges.jpg" alt="Orange 1">
+        <img src="https://www.bing.com/th/id/OIP.wfp_b6LlOiM2rdnK4A5PxgHaEv?w=243&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Orange 2">
+        <img src="https://www.bing.com/th/id/OIP.MPxKfq5aKzICpVgJi5q5UQHaE8?w=236&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Orange 3">
+        <img src="https://www.bing.com/th/id/OIP.FFvWgkIBYYekEc8BVt_wHgHaFW?w=233&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Orange 4">
+      </section>
+    </main>
+  </div>
+
+  <script>
+    console.log("Orange website loaded");
+
+    // Scroll Effect - Moves Background Down Slowly
+    window.addEventListener("scroll", function() {
+      const scrollAmount = window.scrollY;
+      document.querySelector(".background").style.transform = `translateY(-${scrollAmount * 0.3}px)`;
+    });
+  </script>
+</body>
+</html>
